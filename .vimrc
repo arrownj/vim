@@ -37,7 +37,7 @@ set ruler
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set autoindent                                                                                                                                                                                                                                                                  
+set autoindent
 set smartindent
 filetype indent on
 set fileencodings=utf-8,gbk,ucs-bom,cp936
