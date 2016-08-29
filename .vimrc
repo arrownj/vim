@@ -46,7 +46,7 @@ autocmd bufnewfile *.sh so ~/.vim/bash_template
 
 " auto add python header when open a new python file
 autocmd bufnewfile *.py so ~/.vim/python_template
-autocmd bufnewfile *.py exe "1," . 9 . "g/File Name/s//" .expand("%")
+" autocmd bufnewfile *.py exe "1," . 9 . "g/File Name/s//" .expand("%")
 
 
 " open a NERDTree automatically when vim starts up
