@@ -69,3 +69,8 @@ let g:pymode_lint_unmodified = 1
 let g:pymode_lint_ignore = "E128,E501,W"
 let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 1
+
+colorscheme vividchalk
+syntax on
+
+set hlsearch
