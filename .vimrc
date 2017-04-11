@@ -16,6 +16,8 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'bling/vim-airline'
 
+Plugin 'tpope/vim-fugitive'
+
 " remember to install flake8 first (yum install python-flake8)
 Plugin 'klen/python-mode'
 
@@ -74,3 +76,4 @@ colorscheme vividchalk
 syntax on
 
 set hlsearch
+set nu
