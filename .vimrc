@@ -44,10 +44,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " auto add bash header when open a new bash file
-autocmd bufnewfile *.sh so ~/.vim/bash_template
+" autocmd bufnewfile *.sh so ~/.vim/bash_template
 
 " auto add python header when open a new python file
-autocmd bufnewfile *.py so ~/.vim/python_template
+" autocmd bufnewfile *.py so ~/.vim/python_template
 " autocmd bufnewfile *.py exe "1," . 9 . "g/File Name/s//" .expand("%")
 
 
@@ -77,3 +77,4 @@ syntax on
 
 set hlsearch
 set nu
+set completeopt=menu
