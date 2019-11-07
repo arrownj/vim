@@ -23,6 +23,8 @@ Plugin 'klen/python-mode'
 
 Plugin 'altercation/vim-colors-solarized'
 
+Plugin 'leafgarland/typescript-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -78,3 +80,5 @@ syntax on
 set hlsearch
 set nu
 set completeopt=menu
+autocmd Filetype typescript setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
