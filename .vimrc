@@ -1,3 +1,6 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,20 +13,25 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
 
 Plugin 'bling/vim-airline'
 
-Plugin 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
 
-" remember to install flake8 first (yum install python-flake8)
-Plugin 'klen/python-mode'
+Plugin 'weirongxu/plantuml-previewer.vim'
 
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'tyru/open-browser.vim'
 
-Plugin 'leafgarland/typescript-vim'
+Plugin 'aklt/plantuml-syntax'
+
+Plugin 'preservim/nerdtree'
+
+Plugin 'mileszs/ack.vim'
+
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -40,45 +48,27 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" auto add bash header when open a new bash file
-" autocmd bufnewfile *.sh so ~/.vim/bash_template
-
-" auto add python header when open a new python file
-" autocmd bufnewfile *.py so ~/.vim/python_template
-" autocmd bufnewfile *.py exe "1," . 9 . "g/File Name/s//" .expand("%")
-
-
-" open a NERDTree automatically when vim starts up
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" set ctrl L to display/hidden NERDTree window
-map <C-T> :NERDTreeToggle<CR>
-
-" Set NERDTree window to left
-let NERDTreeWinPos="left"
-
-let g:pymode_warnings = 0
-let g:pymode_trim_whitespaces = 1
-let g:pymode_folding = 0
-let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore = "E128,E501,W"
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
-
-colorscheme vividchalk
 syntax on
 
-set hlsearch
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
 set nu
-set completeopt=menu
-autocmd Filetype typescript setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+map <C-n> :NERDTreeToggle<CR>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+" Prefer rg > ag > ack
+if executable('rg')
+    let g:ackprg = 'rg -S --no-heading --vimgrep'
+elseif executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+
